@@ -1,0 +1,53 @@
+{
+  "workDir": ".",
+
+  "dependencies":[
+    {
+      "name": "install privatesky dependencies",
+      "src": ".",
+      "actions": [
+        {
+          "type": "execute",
+          "cmd": "node ./node_modules/octopus/scripts/setEnv --file=../../../env.json \"node ./node_modules/octopus/scripts/run privatesky-dependencies\""
+        }
+      ]
+    }
+  ],
+
+  "privatesky-dependencies":[
+    {
+      "name": "install psk-release",
+      "src": ".",
+      "actions": [
+        {
+          "type": "execute",
+          "cmd": "node ./node_modules/octopus/scripts/setEnv --file=../../../env.json \"node ./node_modules/octopus/scripts/run install-privatesky\""
+        }
+      ]
+    }
+  ],
+
+  "install-privatesky": [
+    {
+      "name": "privatesky",
+      "src": "http://github.com/privatesky/psk-release.git",
+      "actions": [
+        {
+          "type": "smartClone",
+          "target": ".",
+          "collectLog": false,
+          "commit": "b97e3d071de8357a8105b88683b2cd2ef7a25fab"
+        },
+        {
+          "type": "execute",
+          "cmd": "cd privatesky && npm install"
+        }
+      ]
+    }  
+  ]
+
+
+
+
+  
+}
