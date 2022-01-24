@@ -8,13 +8,13 @@
         "actions": [
           {
             "type": "execute",
-            "cmd": "node ./node_modules/octopus/scripts/setEnv --file=../../../env.json \"node ./node_modules/octopus/scripts/run privatesky-dependencies\""
+            "cmd": "node ./node_modules/octopus/scripts/setEnv --file=../../../env.json \"node ./node_modules/octopus/scripts/run install-privatesky-dependencies\""
           }
         ]
       }
     ],
   
-    "privatesky-dependencies":[
+    "install-privatesky-dependencies":[
       {
         "name": "install psk-release",
         "src": ".",
@@ -44,7 +44,52 @@
           }
         ]
       }  
+    ],
+  
+  
+  
+    
+  
+    "uninstall-workspace": [
+      {
+        "name": "uninstall privatesky dependencies",
+        "src": ".",
+        "actions": [
+          {
+            "type": "execute",
+            "cmd": "node ./node_modules/octopus/scripts/setEnv --file=../../../env.json \"node ./node_modules/octopus/scripts/run uninstall-privatesky-dependencies\""
+          }
+        ]
+      }
+    ],
+  
+    "unistall-privatesky-dependencies":[
+      {
+        "name": "uninstall psk-release",
+        "src": ".",
+        "actions": [
+          {
+            "type": "execute",
+            "cmd": "node ./node_modules/octopus/scripts/setEnv --file=../../../env.json \"node ./node_modules/octopus/scripts/run uninstall-privatesky\""
+          }
+        ]
+      }
+    ],
+  
+    "uninstall-privatesky": [
+      {
+        "name": "uninstall psk-release",
+        "src": ".",
+        "actions": [
+          {
+            "type": "remove",
+            "target": "privatesky"
+          }
+        ]
+      }    
     ]
+  
+    
   
   
   
