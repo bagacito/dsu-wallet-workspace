@@ -46,12 +46,22 @@
         ]
       },
       {
-        "name": "install webcardinal",
+        "name": "install blue-flurite-theme",
         "src": ".",
         "actions": [
           {
             "type": "execute",
             "cmd": "node ./node_modules/octopus/scripts/setEnv --file=../../../env.json \"node ./node_modules/octopus/scripts/run install-blue-flurite-theme\""
+          }
+        ]
+      },
+      {
+        "name": "install dossier explorer prototype",
+        "src": ".",
+        "actions": [
+          {
+            "type": "execute",
+            "cmd": "node ./node_modules/octopus/scripts/setEnv --file=../../../env.json \"node ./node_modules/octopus/scripts/run install-dossier-wallet-prototype\""
           }
         ]
       }
@@ -125,6 +135,24 @@
           {
             "type": "execute",
             "cmd": "cd themes/blue-fluorite-theme && npm install"
+          }
+        ]
+      }
+    ],
+    "install-dossier-wallet-prototype":[
+      {
+        "name": "dossier-explorer-wallet-prototype",
+        "src": "https://github.com/PrivateSky/dossier-explorer-wallet-prototype.git",
+        "actions": [
+          {
+            "type": "smartClone",
+            "target": ".",
+            "collectLog": false,
+            "commit": "8ccb66adb594da6571bb5024c4556b2c899388df"
+          },
+          {
+            "type": "execute",
+            "cmd": "cd dossier-explorer-wallet-prototype && npm install"
           }
         ]
       }
@@ -234,6 +262,18 @@
           {
             "type": "remove",
             "target": "themes/blue-flurite-theme"
+          }
+        ]
+      }
+    ],
+    "uninstall-dossier-wallet-prototype":[
+      {
+        "name": "uninstall dossier-wallet-prototype",
+        "src": ".",
+        "actions": [
+          {
+            "type": "remove",
+            "target": "dossier-explorer-wallet-prototype"
           }
         ]
       }
