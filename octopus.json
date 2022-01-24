@@ -74,6 +74,16 @@
             "cmd": "node ./node_modules/octopus/scripts/setEnv --file=../../../env.json \"node ./node_modules/octopus/scripts/run install-dsu-explorer-loader\""
           }
         ]
+      },
+      {
+        "name": "install dossier explorer ssapp",
+        "src": ".",
+        "actions": [
+          {
+            "type": "execute",
+            "cmd": "node ./node_modules/octopus/scripts/setEnv --file=../../../env.json \"node ./node_modules/octopus/scripts/run install-dossier-explorer-ssapp\""
+          }
+        ]
       }
     ],
   
@@ -185,6 +195,24 @@
         ]
       }
     ],
+    "install-dossier-explorer-ssapp": [
+      {
+        "name": "dossier-explorer-ssapp",
+        "src": "https://github.com/PrivateSky/dossier-explorer-ssapp.git",
+        "actions": [
+          {
+            "type": "smartClone",
+            "target": ".",
+            "collectLog": false,
+            "commit": "6e7bed56f5c040908c32c099f5dd2a313fb1652c"
+          },
+          {
+            "type": "execute",
+            "cmd": "cd dossier-explorer-ssapp && npm install"
+          }
+        ]
+      } 
+    ],
   
   
   
@@ -262,6 +290,16 @@
             "cmd": "node ./node_modules/octopus/scripts/setEnv --file=../../../env.json \"node ./node_modules/octopus/scripts/run uninstall-dsu-explorer\""
           }
         ]
+      },
+      {
+        "name": "uninstall dossier-explorer-ssapp",
+        "src": ".",
+        "actions": [
+          {
+            "type": "execute",
+            "cmd": "node ./node_modules/octopus/scripts/setEnv --file=../../../env.json \"node ./node_modules/octopus/scripts/run uninstall-dossier-explorer-ssapp\""
+          }
+        ]
       }
     ],
   
@@ -333,6 +371,18 @@
           {
             "type": "remove",
             "target": "apihub-root/dsu-explorer"
+          }
+        ]
+      }
+    ],
+    "uninstall-dossier-explorer-ssapp":[
+      {
+        "name": "uninstall dossier explorer ssapp",
+        "src": ".",
+        "actions": [
+          {
+            "type": "remove",
+            "target": "dossier-explorer-ssapp"
           }
         ]
       }
