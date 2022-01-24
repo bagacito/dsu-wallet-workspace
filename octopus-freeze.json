@@ -84,7 +84,17 @@
           "cmd": "node ./node_modules/octopus/scripts/setEnv --file=../../../env.json \"node ./node_modules/octopus/scripts/run install-dossier-explorer-ssapp\""
         }
       ]
-    }
+    },
+    {
+        "name": "privatesky dependencies pre build",
+        "src": ".",
+        "actions": [
+          {
+            "type": "execute",
+            "cmd": "node ./node_modules/octopus/scripts/setEnv --file=../../../env.json \"node ./node_modules/octopus/scripts/run privatesky-pre-build\""
+          }
+        ]
+      }
   ],
 
   "install-privatesky": [
@@ -212,6 +222,53 @@
         }
       ]
     } 
+  ],
+
+  "privatesky-pre-build":[
+    {
+      "name": "pre build privatesky",
+      "src": ".",
+      "actions": [
+        {
+          "type": "execute",
+          "cmd": "cd privatesky && npm run build"
+        }
+      ]
+    },
+    {
+      "name": "pre build cardinal",
+      "src": ".",
+      "actions": [
+        {
+          "type": "execute",
+          "cmd": "cd cardinal && npm run build"
+        }
+      ]
+    },
+    {
+      "name": "pre build webcardinal",
+      "src": ".",
+      "actions": [
+        {
+          "type": "execute",
+          "cmd": "cd webcardinal && npm run bundle-minimal && npm run dev"
+        }
+      ]
+    },
+    {
+      "name": "pre build apihub-root/dsu-explorer/loader",
+      "src": ".",
+      "actions": [
+        {
+          "type": "copy",
+          "src": "apihub-root/dsu-explorer/loader/loader-config.local.json-template",
+          "target": "apihub-root/dsu-explorer/loader/loader-config.local.json",
+          "options": {
+            "overwrite": true
+          }
+        }
+      ]
+    }  
   ],
 
 
