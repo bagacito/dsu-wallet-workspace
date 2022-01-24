@@ -64,6 +64,16 @@
           "cmd": "node ./node_modules/octopus/scripts/setEnv --file=../../../env.json \"node ./node_modules/octopus/scripts/run install-dossier-wallet-prototype\""
         }
       ]
+    },
+    {
+      "name": "install dsu explorer loader",
+      "src": ".",
+      "actions": [
+        {
+          "type": "execute",
+          "cmd": "node ./node_modules/octopus/scripts/setEnv --file=../../../env.json \"node ./node_modules/octopus/scripts/run install-dossier-wallet-prototype\""
+        }
+      ]
     }
   ],
 
@@ -157,7 +167,24 @@
       ]
     }
   ],
-
+  "install-dsu-explorer-loader":[
+    {
+      "name": "apihub-root/dsu-explorer/loader",
+      "src": "https://github.com/PrivateSky/web-dossier-loader.git",
+      "actions": [
+        {
+          "type": "smartClone",
+          "target": ".",
+          "collectLog": false,
+          "commit": "2ba38dd623498d2c452812ff855876b8e91e7a2a"
+        },
+        {
+          "type": "execute",
+          "cmd": "cd apihub-root/dsu-explorer/loader && npm install"
+        }
+      ]
+    }
+  ],
 
 
 
@@ -213,6 +240,16 @@
         {
           "type": "execute",
           "cmd": "node ./node_modules/octopus/scripts/setEnv --file=../../../env.json \"node ./node_modules/octopus/scripts/run uninstall-blue-flurite-theme\""
+        }
+      ]
+    },
+    {
+      "name": "uninstall dsu-explorer",
+      "src": ".",
+      "actions": [
+        {
+          "type": "execute",
+          "cmd": "node ./node_modules/octopus/scripts/setEnv --file=../../../env.json \"node ./node_modules/octopus/scripts/run uninstall-dsu-explorer\""
         }
       ]
     }
@@ -274,6 +311,18 @@
         {
           "type": "remove",
           "target": "dossier-explorer-wallet-prototype"
+        }
+      ]
+    }
+  ],
+  "uninstall-dsu-explorer":[
+    {
+      "name": "uninstall dsu-explorer",
+      "src": ".",
+      "actions": [
+        {
+          "type": "remove",
+          "target": "apihub-root/dsu-explorer"
         }
       ]
     }
