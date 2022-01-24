@@ -34,6 +34,16 @@
           "cmd": "node ./node_modules/octopus/scripts/setEnv --file=../../../env.json \"node ./node_modules/octopus/scripts/run install-cardinal\""
         }
       ]
+    },
+    {
+      "name": "install webcardinal",
+      "src": ".",
+      "actions": [
+        {
+          "type": "execute",
+          "cmd": "node ./node_modules/octopus/scripts/setEnv --file=../../../env.json \"node ./node_modules/octopus/scripts/run install-webcardinal\""
+        }
+      ]
     }
   ],
 
@@ -69,6 +79,24 @@
         {
           "type": "execute",
           "cmd": "cd cardinal && npm install"
+        }
+      ]
+    }
+  ],
+  "install-webcardinal":[
+    {
+      "name": "webcardinal",
+      "src": "https://github.com/webcardinal/webcardinal-bundler",
+      "actions": [
+        {
+          "type": "smartClone",
+          "target": ".",
+          "collectLog": false,
+          "commit": "44036cf46b1209529c642dc7b3b4e7f856908d8b"
+        },
+        {
+          "type": "execute",
+          "cmd": "cd webcardinal && npm install"
         }
       ]
     }
@@ -111,6 +139,16 @@
           "cmd": "node ./node_modules/octopus/scripts/setEnv --file=../../../env.json \"node ./node_modules/octopus/scripts/run uninstall-cardinal\""
         }
       ]
+    },
+    {
+      "name": "uninstall webcardinal",
+      "src": ".",
+      "actions": [
+        {
+          "type": "execute",
+          "cmd": "node ./node_modules/octopus/scripts/setEnv --file=../../../env.json \"node ./node_modules/octopus/scripts/run uninstall-webcardinal\""
+        }
+      ]
     }
   ],
 
@@ -134,6 +172,18 @@
         {
           "type": "remove",
           "target": "cardinal"
+        }
+      ]
+    }
+  ],
+  "uninstall-webcardinal":[
+    {
+      "name": "uninstall webcardinal",
+      "src": ".",
+      "actions": [
+        {
+          "type": "remove",
+          "target": "webcardinal"
         }
       ]
     }
