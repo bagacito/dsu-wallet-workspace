@@ -244,6 +244,16 @@
         ]
       },
       {
+        "name": "uninstall dossier-wallet-prototype",
+        "src": ".",
+        "actions": [
+          {
+            "type": "execute",
+            "cmd": "node ./node_modules/octopus/scripts/setEnv --file=../../../env.json \"node ./node_modules/octopus/scripts/run uninstall-dossier-wallet-prototype\""
+          }
+        ]
+      },
+      {
         "name": "uninstall dsu-explorer",
         "src": ".",
         "actions": [
