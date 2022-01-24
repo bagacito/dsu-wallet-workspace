@@ -63,7 +63,7 @@
     }
   ],
 
-  "unistall-privatesky-dependencies":[
+  "uninstall-privatesky-dependencies":[
     {
       "name": "uninstall psk-release",
       "src": ".",
