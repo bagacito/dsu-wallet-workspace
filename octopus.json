@@ -71,7 +71,7 @@
         "actions": [
           {
             "type": "execute",
-            "cmd": "node ./node_modules/octopus/scripts/setEnv --file=../../../env.json \"node ./node_modules/octopus/scripts/run install-dossier-wallet-prototype\""
+            "cmd": "node ./node_modules/octopus/scripts/setEnv --file=../../../env.json \"node ./node_modules/octopus/scripts/run install-dsu-explorer-loader\""
           }
         ]
       }
